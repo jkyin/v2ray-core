@@ -20,7 +20,7 @@ import (
 
 var (
 	version  = "4.22.1"
-	build    = "Custom"
+	build    = "jkyin"
 	codename = "V2Fly, a community-driven edition of V2Ray."
 	intro    = "A unified platform for anti-censorship."
 )
@@ -37,6 +37,11 @@ func VersionStatement() []string {
 		serial.Concat("V2Ray ", Version(), " (", codename, ") ", build, " (", runtime.Version(), " ", runtime.GOOS, "/", runtime.GOARCH, ")"),
 		intro,
 	}
+}
+
+// VersionDetail 版本详情.
+func VersionDetail() string {
+	return "V2Ray " + Version() + " (" + codename + ") " + build + " (" + runtime.Version() + " " + runtime.GOOS + "/" + runtime.GOARCH + ")" + intro
 }
 
 /*

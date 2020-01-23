@@ -1,0 +1,40 @@
+{
+  "log": {
+      "loglevel": "none"
+    },
+  "inbound": {
+      "port": 1081,
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "tag": "socks-inbound",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+          "auth": "noauth",
+          "udp": false,
+          "ip": "127.0.0.1",
+          "userLevel": 0
+        }
+  },
+  "outbound": {
+      "protocol": "vmess",
+      "settings": {
+          "vnext": [{
+              "address": "bwg.jkyin.me",
+              "port": 443,
+              "users": [{
+                  "id": "17c473e1-da68-44e6-9cc0-874803027c9a",
+                  "alterId": 6,
+                  "email": "yinxiaoyu888@gmail.com"
+              }]
+          }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "allowInsecure": true
+      }
+  }
+}

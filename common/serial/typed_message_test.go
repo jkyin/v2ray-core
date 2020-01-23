@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetInstance(t *testing.T) {
-	p, err := GetInstance("")
+	p, err := GetInstance("v2ray.core.app.log.Config")
 	if p != nil {
 		t.Error("expected nil instance, but got ", p)
 	}

@@ -34,18 +34,18 @@ filegroup(
 )
 
 pkg_zip(
-    name = "v2ray_darwin_amd64_package",
+    name = "v2ray_darwin_arm64_package",
     srcs = [
         ":config_json",
         ":doc",
         ":geodata",
-        "//infra/control/main:v2ctl_darwin_amd64",
-        "//infra/control/main:v2ctl_darwin_amd64_sig",
-        "//main:v2ray_darwin_amd64",
-        "//main:v2ray_darwin_amd64_sig",
+        "//infra/control/main:v2ctl_darwin_arm64",
+        "//infra/control/main:v2ctl_darwin_arm64_sig",
+        "//main:v2ray_darwin_arm64",
+        "//main:v2ray_darwin_arm64_sig",
     ],
     out = "v2ray-macos.zip",
-    mappings = gen_mappings("darwin", "amd64"),
+    mappings = gen_mappings("darwin", "arm64"),
 )
 
 pkg_zip(

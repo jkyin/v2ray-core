@@ -37,6 +37,10 @@ func xor2(b []byte) []byte {
 	return r
 }
 
+func TestStart(t *testing.T) {
+	core.Start("/Users/jkyin/config.pb")
+}
+
 func TestV2RayDial(t *testing.T) {
 	tcpServer := tcp.Server{
 		MsgProcessor: xor,

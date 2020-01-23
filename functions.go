@@ -5,6 +5,7 @@ package core
 import (
 	"bytes"
 	"context"
+	"v2ray.com/core/main/confloader"
 
 	"v2ray.com/core/common"
 	"v2ray.com/core/common/net"
@@ -37,6 +38,26 @@ func StartInstance(configFormat string, configBytes []byte) (*Instance, error) {
 	if err := instance.Start(); err != nil {
 		return nil, err
 	}
+	return instance, nil
+}
+
+func Start(configFile string) (*Instance, error) {
+	configInput, err := confloader.LoadConfig(configFile)
+	if err != nil {
+		return nil, newError("failed to load config: ", configFile).Base(err)
+	}
+	defer configInput.Close()
+
+	config, err := LoadConfig("protobuf", configFile, configInput)
+	if err != nil {
+		return nil, newError("failed to read config file: ", configFile).Base(err)
+	}
+
+	instance, err := New(config)
+	if err != nil {
+		return nil, newError("failed to create server").Base(err)
+	}
+
 	return instance, nil
 }
 

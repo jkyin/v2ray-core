@@ -4,6 +4,7 @@ package socks
 
 import (
 	"encoding/binary"
+	"fmt"
 	"io"
 
 	"v2ray.com/core/common"
@@ -178,6 +179,7 @@ func (s *ServerSession) handshake5(nMethod byte, reader io.Reader, writer io.Wri
 	}
 	request.Address = addr
 	request.Port = port
+	fmt.Printf("地址：%v 端口：%v\n", addr, port)
 
 	responseAddress := net.AnyIP
 	responsePort := net.Port(1717)

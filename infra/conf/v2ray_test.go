@@ -47,9 +47,9 @@ func TestV2RayConfig(t *testing.T) {
 					"settings": {}
 				},
 				"log": {
-					"access": "/var/log/v2ray/access.log",
+					"access": "none",
 					"loglevel": "error",
-					"error": "/var/log/v2ray/error.log"
+					"error": "none"
 				},
 				"inbound": {
 					"streamSettings": {
@@ -140,11 +140,11 @@ func TestV2RayConfig(t *testing.T) {
 			Output: &core.Config{
 				App: []*serial.TypedMessage{
 					serial.ToTypedMessage(&log.Config{
-						ErrorLogType:  log.LogType_File,
-						ErrorLogPath:  "/var/log/v2ray/error.log",
+						ErrorLogType:  log.LogType_None,
+						ErrorLogPath:  "",
 						ErrorLogLevel: clog.Severity_Error,
-						AccessLogType: log.LogType_File,
-						AccessLogPath: "/var/log/v2ray/access.log",
+						AccessLogType: log.LogType_None,
+						AccessLogPath: "",
 					}),
 					serial.ToTypedMessage(&dispatcher.Config{}),
 					serial.ToTypedMessage(&proxyman.InboundConfig{}),

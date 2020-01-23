@@ -102,10 +102,10 @@ func main() {
 		os.Exit(23)
 	}
 
-	if *test {
-		fmt.Println("Configuration OK.")
-		os.Exit(0)
-	}
+	//if *test {
+	//	fmt.Println("Configuration OK.")
+	//	os.Exit(0)
+	//}
 
 	if err := server.Start(); err != nil {
 		fmt.Println("Failed to start", err)
